@@ -119,7 +119,7 @@ glm_translated_z(mat4 m, float z) {
 CGLM_INLINE
 void
 glm_rotated_x(mat4 m, float angle, mat4 dest) {
-  CGLM_ALIGN_MAT mat4 t = GLM_MAT4_IDENTITY_INIT;
+  CGLM_ALIGN_MAT_IF mat4 t = GLM_MAT4_IDENTITY_INIT;
   float c, s;
 
   c = cosf(angle);
@@ -146,7 +146,7 @@ glm_rotated_x(mat4 m, float angle, mat4 dest) {
 CGLM_INLINE
 void
 glm_rotated_y(mat4 m, float angle, mat4 dest) {
-  CGLM_ALIGN_MAT mat4 t = GLM_MAT4_IDENTITY_INIT;
+  CGLM_ALIGN_MAT_IF mat4 t = GLM_MAT4_IDENTITY_INIT;
   float c, s;
 
   c = cosf(angle);
@@ -173,7 +173,7 @@ glm_rotated_y(mat4 m, float angle, mat4 dest) {
 CGLM_INLINE
 void
 glm_rotated_z(mat4 m, float angle, mat4 dest) {
-  CGLM_ALIGN_MAT mat4 t = GLM_MAT4_IDENTITY_INIT;
+  CGLM_ALIGN_MAT_IF mat4 t = GLM_MAT4_IDENTITY_INIT;
   float c, s;
 
   c = cosf(angle);
@@ -199,7 +199,7 @@ glm_rotated_z(mat4 m, float angle, mat4 dest) {
 CGLM_INLINE
 void
 glm_rotated(mat4 m, float angle, vec3 axis) {
-  CGLM_ALIGN_MAT mat4 rot;
+  CGLM_ALIGN_MAT_IF mat4 rot;
   glm_rotate_make(rot, angle, axis);
   glm_mul_rot(rot, m, m);
 }
@@ -239,7 +239,7 @@ glm_rotated_at(mat4 m, vec3 pivot, float angle, vec3 axis) {
 CGLM_INLINE
 void
 glm_spinned(mat4 m, float angle, vec3 axis) {
-  CGLM_ALIGN_MAT mat4 rot;
+  CGLM_ALIGN_MAT_IF mat4 rot;
   glm_rotate_atm(rot, m[3], angle, axis);
   glm_mat4_mul(rot, m, m);
 }

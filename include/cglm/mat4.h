@@ -167,7 +167,7 @@ glm_mat4_copy(mat4 mat, mat4 dest) {
 CGLM_INLINE
 void
 glm_mat4_identity(mat4 mat) {
-  CGLM_ALIGN_MAT mat4 t = GLM_MAT4_IDENTITY_INIT;
+  CGLM_ALIGN_MAT_IF mat4 t = GLM_MAT4_IDENTITY_INIT;
   glm_mat4_copy(t, mat);
 }
 
@@ -182,7 +182,7 @@ glm_mat4_identity(mat4 mat) {
 CGLM_INLINE
 void
 glm_mat4_identity_array(mat4 * __restrict mat, size_t count) {
-  CGLM_ALIGN_MAT mat4 t = GLM_MAT4_IDENTITY_INIT;
+  CGLM_ALIGN_MAT_IF mat4 t = GLM_MAT4_IDENTITY_INIT;
   size_t i;
 
   for (i = 0; i < count; i++) {
@@ -225,7 +225,7 @@ glm_mat4_zero(mat4 mat) {
   vst1q_f32(mat[2], x0);
   vst1q_f32(mat[3], x0);
 #else
-  CGLM_ALIGN_MAT mat4 t = GLM_MAT4_ZERO_INIT;
+  CGLM_ALIGN_MAT_IF mat4 t = GLM_MAT4_ZERO_INIT;
   glm_mat4_copy(t, mat);
 #endif
 }

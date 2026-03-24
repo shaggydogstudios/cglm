@@ -15,12 +15,7 @@ Types:
   typedef CGLM_ALIGN_IF(16) float vec4[4];
   typedef vec4                    versor;
   typedef vec3                    mat3[3];
-
-  #ifdef __AVX__
-  typedef CGLM_ALIGN_IF(32) vec4  mat4[4];
-  #else
-  typedef CGLM_ALIGN_IF(16) vec4  mat4[4];
-  #endif
+  typedef CGLM_ALIGN_MAT_IF vec4  mat4[4];
 
 As you can see types don't store extra information in favor of space.
 You can send these values e.g. matrix to OpenGL directly without casting or calling a function like *value_ptr*

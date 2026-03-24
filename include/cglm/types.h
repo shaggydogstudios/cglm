@@ -27,14 +27,14 @@
 
 #ifndef CGLM_ALL_UNALIGNED
 #  define CGLM_ALIGN_IF(X) CGLM_ALIGN(X)
+#  ifdef __AVX__
+#    define CGLM_ALIGN_MAT_IF CGLM_ALIGN(32)
+#  else
+#    define CGLM_ALIGN_MAT_IF CGLM_ALIGN(16)
+#  endif
 #else
 #  define CGLM_ALIGN_IF(X) /* no alignment */
-#endif
-
-#ifdef __AVX__
-#  define CGLM_ALIGN_MAT CGLM_ALIGN(32)
-#else
-#  define CGLM_ALIGN_MAT CGLM_ALIGN(16)
+#  define CGLM_ALIGN_MAT_IF /* no alignment */
 #endif
 
 #ifndef CGLM_HAVE_BUILTIN_ASSUME_ALIGNED
@@ -87,7 +87,7 @@ typedef vec4                    mat3x4[3];  /* [col (3), row (4)] */
 typedef CGLM_ALIGN_IF(16) vec2  mat2[2];
 typedef vec3                    mat2x3[2];  /* [col (2), row (3)] */
 typedef vec4                    mat2x4[2];  /* [col (2), row (4)] */
-typedef CGLM_ALIGN_MAT    vec4  mat4[4];
+typedef CGLM_ALIGN_MAT_IF vec4  mat4[4];
 typedef vec2                    mat4x2[4];  /* [col (4), row (2)] */
 typedef vec3                    mat4x3[4];  /* [col (4), row (3)] */
 

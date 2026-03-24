@@ -817,7 +817,7 @@ glm_quat_look(vec3 eye, versor ori, mat4 dest) {
 CGLM_INLINE
 void
 glm_quat_for(vec3 dir, vec3 up, versor dest) {
-  CGLM_ALIGN_MAT mat3 m;
+  CGLM_ALIGN_MAT_IF mat3 m;
 
   glm_vec3_normalize_to(dir, m[2]); 
 
@@ -885,7 +885,7 @@ glm_quat_rotatev(versor q, vec3 v, vec3 dest) {
 CGLM_INLINE
 void
 glm_quat_rotate(mat4 m, versor q, mat4 dest) {
-  CGLM_ALIGN_MAT mat4 rot;
+  CGLM_ALIGN_MAT_IF mat4 rot;
   glm_quat_mat4(q, rot);
   glm_mul_rot(m, rot, dest);
 }

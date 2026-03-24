@@ -53,7 +53,7 @@ glm_mat4x2_copy(mat4x2 src, mat4x2 dest) {
 CGLM_INLINE
 void
 glm_mat4x2_zero(mat4x2 m) {
-  CGLM_ALIGN_MAT mat4x2 t = GLM_MAT4X2_ZERO_INIT;
+  CGLM_ALIGN_MAT_IF mat4x2 t = GLM_MAT4X2_ZERO_INIT;
   glm_mat4x2_copy(t, m);
 }
 

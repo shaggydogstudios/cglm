@@ -102,7 +102,7 @@ glm_mat2_copy(mat2 mat, mat2 dest) {
 CGLM_INLINE
 void
 glm_mat2_identity(mat2 m) {
-  CGLM_ALIGN_MAT mat2 t = GLM_MAT2_IDENTITY_INIT;
+  CGLM_ALIGN_MAT_IF mat2 t = GLM_MAT2_IDENTITY_INIT;
   glm_mat2_copy(t, m);
 }
 
@@ -115,7 +115,7 @@ glm_mat2_identity(mat2 m) {
 CGLM_INLINE
 void
 glm_mat2_identity_array(mat2 * __restrict mats, size_t count) {
-  CGLM_ALIGN_MAT mat2 t = GLM_MAT2_IDENTITY_INIT;
+  CGLM_ALIGN_MAT_IF mat2 t = GLM_MAT2_IDENTITY_INIT;
   size_t i;
 
   for (i = 0; i < count; i++) {
@@ -131,7 +131,7 @@ glm_mat2_identity_array(mat2 * __restrict mats, size_t count) {
 CGLM_INLINE
 void
 glm_mat2_zero(mat2 m) {
-  CGLM_ALIGN_MAT mat2 t = GLM_MAT2_ZERO_INIT;
+  CGLM_ALIGN_MAT_IF mat2 t = GLM_MAT2_ZERO_INIT;
   glm_mat2_copy(t, m);
 }
 
