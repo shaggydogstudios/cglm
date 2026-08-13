@@ -15,15 +15,15 @@ extern "C" {
 
 CGLM_EXPORT
 void
-glmc_lookat_rh_zo(vec3 eye, vec3 center, vec3 up, mat4 dest);
+glmc_lookat_rh_zo(vec3_const eye, vec3_const center, vec3_const up, mat4 dest);
 
 CGLM_EXPORT
 void
-glmc_look_rh_zo(vec3 eye, vec3 dir, vec3 up, mat4 dest);
+glmc_look_rh_zo(vec3_const eye, vec3_const dir, vec3_const up, mat4 dest);
 
 CGLM_EXPORT
 void
-glmc_look_anyup_rh_zo(vec3 eye, vec3 dir, mat4 dest);
+glmc_look_anyup_rh_zo(vec3_const eye, vec3_const dir, mat4 dest);
 
 #ifdef __cplusplus
 }

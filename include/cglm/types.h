@@ -73,10 +73,15 @@
    ((type*)CGLM_ASSUME_ALIGNED((expr), __alignof__(type)))
 #endif
 
+#ifdef CGLM_USE_CONST_TYPES
+#  define CGLM_CONST_TYPE const
+#else
+#  define CGLM_CONST_TYPE
+#endif
+
 typedef int                     ivec2[2];
 typedef int                     ivec3[3];
 typedef int                     ivec4[4];
-
 typedef float                   vec2[2];
 typedef float                   vec3[3];
 typedef CGLM_ALIGN_IF(16) float vec4[4];
@@ -90,6 +95,23 @@ typedef vec4                    mat2x4[2];  /* [col (2), row (4)] */
 typedef CGLM_ALIGN_MAT_IF vec4  mat4[4];
 typedef vec2                    mat4x2[4];  /* [col (4), row (2)] */
 typedef vec3                    mat4x3[4];  /* [col (4), row (3)] */
+
+typedef CGLM_CONST_TYPE ivec2   ivec2_const;
+typedef CGLM_CONST_TYPE ivec3   ivec3_const;
+typedef CGLM_CONST_TYPE ivec4   ivec4_const;
+typedef CGLM_CONST_TYPE vec2    vec2_const;
+typedef CGLM_CONST_TYPE vec3    vec3_const;
+typedef CGLM_CONST_TYPE vec4    vec4_const;
+typedef CGLM_CONST_TYPE versor  versor_const;
+typedef CGLM_CONST_TYPE mat3    mat3_const;
+typedef CGLM_CONST_TYPE mat3x2  mat3x2_const;
+typedef CGLM_CONST_TYPE mat3x4  mat3x4_const;
+typedef CGLM_CONST_TYPE mat2    mat2_const;
+typedef CGLM_CONST_TYPE mat2x3  mat2x3_const;
+typedef CGLM_CONST_TYPE mat2x4  mat2x4_const;
+typedef CGLM_CONST_TYPE mat4    mat4_const;
+typedef CGLM_CONST_TYPE mat4x2  mat4x2_const;
+typedef CGLM_CONST_TYPE mat4x3  mat4x3_const;
 
 
 /*!

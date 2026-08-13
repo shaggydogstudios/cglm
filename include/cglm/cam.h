@@ -395,7 +395,7 @@ glm_perspective_resize(float aspect, mat4 proj) {
  */
 CGLM_INLINE
 void
-glm_lookat(vec3 eye, vec3 center, vec3 up, mat4 dest) {
+glm_lookat(vec3_const eye, vec3_const center, vec3_const up, mat4 dest) {
 #if CGLM_CONFIG_CLIP_CONTROL & CGLM_CLIP_CONTROL_LH_BIT
   glm_lookat_lh(eye, center, up, dest);
 #elif CGLM_CONFIG_CLIP_CONTROL & CGLM_CLIP_CONTROL_RH_BIT
@@ -419,7 +419,7 @@ glm_lookat(vec3 eye, vec3 center, vec3 up, mat4 dest) {
  */
 CGLM_INLINE
 void
-glm_look(vec3 eye, vec3 dir, vec3 up, mat4 dest) {
+glm_look(vec3_const eye, vec3_const dir, vec3_const up, mat4 dest) {
 #if CGLM_CONFIG_CLIP_CONTROL & CGLM_CLIP_CONTROL_LH_BIT
   glm_look_lh(eye, dir, up, dest);
 #elif CGLM_CONFIG_CLIP_CONTROL & CGLM_CLIP_CONTROL_RH_BIT
@@ -439,7 +439,7 @@ glm_look(vec3 eye, vec3 dir, vec3 up, mat4 dest) {
  */
 CGLM_INLINE
 void
-glm_look_anyup(vec3 eye, vec3 dir, mat4 dest) {
+glm_look_anyup(vec3_const eye, vec3_const dir, mat4 dest) {
 #if CGLM_CONFIG_CLIP_CONTROL & CGLM_CLIP_CONTROL_LH_BIT
   glm_look_anyup_lh(eye, dir, dest);
 #elif CGLM_CONFIG_CLIP_CONTROL & CGLM_CLIP_CONTROL_RH_BIT
@@ -460,7 +460,7 @@ glm_look_anyup(vec3 eye, vec3 dir, mat4 dest) {
  */
 CGLM_INLINE
 void
-glm_persp_decomp(mat4 proj,
+glm_persp_decomp(mat4_const proj,
                  float * __restrict nearZ, float * __restrict farZ,
                  float * __restrict top,   float * __restrict bottom,
                  float * __restrict left,  float * __restrict right) {
@@ -484,7 +484,7 @@ glm_persp_decomp(mat4 proj,
  */
 CGLM_INLINE
 void
-glm_persp_decompv(mat4 proj, float dest[6]) {
+glm_persp_decompv(mat4_const proj, float dest[6]) {
 #if CGLM_CONFIG_CLIP_CONTROL == CGLM_CLIP_CONTROL_LH_ZO
   glm_persp_decompv_lh_zo(proj, dest);
 #elif CGLM_CONFIG_CLIP_CONTROL == CGLM_CLIP_CONTROL_LH_NO
@@ -506,7 +506,7 @@ glm_persp_decompv(mat4 proj, float dest[6]) {
  */
 CGLM_INLINE
 void
-glm_persp_decomp_x(mat4 proj,
+glm_persp_decomp_x(mat4_const proj,
                    float * __restrict left,
                    float * __restrict right) {
 #if CGLM_CONFIG_CLIP_CONTROL == CGLM_CLIP_CONTROL_LH_ZO
@@ -530,7 +530,7 @@ glm_persp_decomp_x(mat4 proj,
  */
 CGLM_INLINE
 void
-glm_persp_decomp_y(mat4 proj,
+glm_persp_decomp_y(mat4_const proj,
                    float * __restrict top,
                    float * __restrict bottom) {
 #if CGLM_CONFIG_CLIP_CONTROL == CGLM_CLIP_CONTROL_LH_ZO
@@ -554,7 +554,7 @@ glm_persp_decomp_y(mat4 proj,
  */
 CGLM_INLINE
 void
-glm_persp_decomp_z(mat4 proj, float * __restrict nearZ, float * __restrict farZ) {
+glm_persp_decomp_z(mat4_const proj, float * __restrict nearZ, float * __restrict farZ) {
 #if CGLM_CONFIG_CLIP_CONTROL == CGLM_CLIP_CONTROL_LH_ZO
   glm_persp_decomp_z_lh_zo(proj, nearZ, farZ);
 #elif CGLM_CONFIG_CLIP_CONTROL == CGLM_CLIP_CONTROL_LH_NO
@@ -574,7 +574,7 @@ glm_persp_decomp_z(mat4 proj, float * __restrict nearZ, float * __restrict farZ)
  */
 CGLM_INLINE
 void
-glm_persp_decomp_far(mat4 proj, float * __restrict farZ) {
+glm_persp_decomp_far(mat4_const proj, float * __restrict farZ) {
 #if CGLM_CONFIG_CLIP_CONTROL == CGLM_CLIP_CONTROL_LH_ZO
   glm_persp_decomp_far_lh_zo(proj, farZ);
 #elif CGLM_CONFIG_CLIP_CONTROL == CGLM_CLIP_CONTROL_LH_NO
@@ -594,7 +594,7 @@ glm_persp_decomp_far(mat4 proj, float * __restrict farZ) {
  */
 CGLM_INLINE
 void
-glm_persp_decomp_near(mat4 proj, float * __restrict nearZ) {
+glm_persp_decomp_near(mat4_const proj, float * __restrict nearZ) {
 #if CGLM_CONFIG_CLIP_CONTROL == CGLM_CLIP_CONTROL_LH_ZO
   glm_persp_decomp_near_lh_zo(proj, nearZ);
 #elif CGLM_CONFIG_CLIP_CONTROL == CGLM_CLIP_CONTROL_LH_NO
@@ -615,7 +615,7 @@ glm_persp_decomp_near(mat4 proj, float * __restrict nearZ) {
  */
 CGLM_INLINE
 void
-glm_persp_sizes(mat4 proj, float fovy, vec4 dest) {
+glm_persp_sizes(mat4_const proj, float fovy, vec4 dest) {
 #if CGLM_CONFIG_CLIP_CONTROL == CGLM_CLIP_CONTROL_LH_ZO
   glm_persp_sizes_lh_zo(proj, fovy, dest);
 #elif CGLM_CONFIG_CLIP_CONTROL == CGLM_CLIP_CONTROL_LH_NO

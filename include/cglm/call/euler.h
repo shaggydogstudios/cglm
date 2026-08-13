@@ -15,63 +15,63 @@ extern "C" {
 
 CGLM_EXPORT
 void
-glmc_euler_angles(mat4 m, vec3 dest);
+glmc_euler_angles(mat4_const m, vec3 dest);
 
 CGLM_EXPORT
 void
-glmc_euler(vec3 angles, mat4 dest);
+glmc_euler(vec3_const angles, mat4 dest);
 
 CGLM_EXPORT
 void
-glmc_euler_xyz(vec3 angles,  mat4 dest);
+glmc_euler_xyz(vec3_const angles,  mat4 dest);
 
 CGLM_EXPORT
 void
-glmc_euler_zyx(vec3 angles,  mat4 dest);
+glmc_euler_zyx(vec3_const angles,  mat4 dest);
 
 CGLM_EXPORT
 void
-glmc_euler_zxy(vec3 angles, mat4 dest);
+glmc_euler_zxy(vec3_const angles, mat4 dest);
 
 CGLM_EXPORT
 void
-glmc_euler_xzy(vec3 angles, mat4 dest);
+glmc_euler_xzy(vec3_const angles, mat4 dest);
 
 CGLM_EXPORT
 void
-glmc_euler_yzx(vec3 angles, mat4 dest);
+glmc_euler_yzx(vec3_const angles, mat4 dest);
 
 CGLM_EXPORT
 void
-glmc_euler_yxz(vec3 angles, mat4 dest);
+glmc_euler_yxz(vec3_const angles, mat4 dest);
 
 CGLM_EXPORT
 void
-glmc_euler_by_order(vec3 angles, glm_euler_seq axis, mat4 dest);
+glmc_euler_by_order(vec3_const angles, glm_euler_seq axis, mat4 dest);
 
 CGLM_EXPORT
 void
-glmc_euler_xyz_quat(vec3 angles, versor dest);
+glmc_euler_xyz_quat(vec3_const angles, versor dest);
 
 CGLM_EXPORT
 void
-glmc_euler_xzy_quat(vec3 angles, versor dest);
+glmc_euler_xzy_quat(vec3_const angles, versor dest);
 
 CGLM_EXPORT
 void
-glmc_euler_yxz_quat(vec3 angles, versor dest);
+glmc_euler_yxz_quat(vec3_const angles, versor dest);
 
 CGLM_EXPORT
 void
-glmc_euler_yzx_quat(vec3 angles, versor dest);
+glmc_euler_yzx_quat(vec3_const angles, versor dest);
 
 CGLM_EXPORT
 void
-glmc_euler_zxy_quat(vec3 angles, versor dest);
+glmc_euler_zxy_quat(vec3_const angles, versor dest);
 
 CGLM_EXPORT
 void
-glmc_euler_zyx_quat(vec3 angles, versor dest);
+glmc_euler_zyx_quat(vec3_const angles, versor dest);
 
 
 #ifdef __cplusplus

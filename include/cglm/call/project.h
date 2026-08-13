@@ -15,23 +15,23 @@ extern "C" {
 
 CGLM_EXPORT
 void
-glmc_unprojecti(vec3 pos, mat4 invMat, vec4 vp, vec3 dest);
+glmc_unprojecti(vec3_const pos, mat4_const invMat, vec4_const vp, vec3 dest);
 
 CGLM_EXPORT
 void
-glmc_unproject(vec3 pos, mat4 m, vec4 vp, vec3 dest);
+glmc_unproject(vec3_const pos, mat4_const m, vec4_const vp, vec3 dest);
 
 CGLM_EXPORT
 void
-glmc_project(vec3 pos, mat4 m, vec4 vp, vec3 dest);
+glmc_project(vec3_const pos, mat4_const m, vec4_const vp, vec3 dest);
 
 CGLM_EXPORT
 float
-glmc_project_z(vec3 pos, mat4 m);
+glmc_project_z(vec3_const pos, mat4_const m);
 
 CGLM_EXPORT
 void
-glmc_pickmatrix(vec2 center, vec2 size, vec4 vp, mat4 dest);
+glmc_pickmatrix(vec2_const center, vec2_const size, vec4_const vp, mat4 dest);
 
 #ifdef __cplusplus
 }

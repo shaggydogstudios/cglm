@@ -30,7 +30,7 @@
  */
 CGLM_INLINE
 float
-glm_persp_fovy(mat4 proj) {
+glm_persp_fovy(mat4_const proj) {
   return 2.0f * atanf(1.0f / proj[1][1]);
 }
 
@@ -41,7 +41,7 @@ glm_persp_fovy(mat4 proj) {
  */
 CGLM_INLINE
 float
-glm_persp_aspect(mat4 proj) {
+glm_persp_aspect(mat4_const proj) {
   return proj[1][1] / proj[0][0];
 }
 

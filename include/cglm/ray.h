@@ -39,11 +39,11 @@
  */
 CGLM_INLINE
 bool
-glm_ray_triangle(vec3   origin,
-                 vec3   direction,
-                 vec3   v0,
-                 vec3   v1,
-                 vec3   v2,
+glm_ray_triangle(vec3_const origin,
+                 vec3_const direction,
+                 vec3_const v0,
+                 vec3_const v1,
+                 vec3_const v2,
                  float *d) {
   vec3        edge1, edge2, p, t, q;
   float       det, inv_det, u, v, dist;
@@ -101,9 +101,9 @@ glm_ray_triangle(vec3   origin,
  */
 CGLM_INLINE
 bool 
-glm_ray_sphere(vec3 origin,
+glm_ray_sphere(vec3_const origin,
                vec3 dir,
-               vec4 s,
+               vec4_const s,
                float * __restrict t1,
                float * __restrict t2) {
   vec3  dp;
@@ -165,7 +165,7 @@ glm_ray_sphere(vec3 origin,
  */
 CGLM_INLINE
 void
-glm_ray_at(vec3 orig, vec3 dir, float t, vec3 point) {
+glm_ray_at(vec3_const orig, vec3_const dir, float t, vec3 point) {
   vec3 dst;
   glm_vec3_scale(dir, t, dst);
   glm_vec3_add(orig, dst, point);

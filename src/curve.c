@@ -10,6 +10,6 @@
 
 CGLM_EXPORT
 float
-glmc_smc(float s, mat4 m, vec4 c) {
+glmc_smc(float s, mat4_const m, vec4_const c) {
   return glm_smc(s, m, c);
 }

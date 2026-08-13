@@ -149,7 +149,7 @@ glm_quat_init(versor q, float x, float y, float z, float w) {
  */
 CGLM_INLINE
 void
-glm_quatv(versor q, float angle, vec3 axis) {
+glm_quatv(versor q, float angle, vec3_const axis) {
   CGLM_ALIGN(8) vec3 k;
   float a, c, s;
 
@@ -189,7 +189,7 @@ glm_quat(versor q, float angle, float x, float y, float z) {
  */
 CGLM_INLINE
 void
-glm_quat_copy(versor q, versor dest) {
+glm_quat_copy(versor_const q, versor dest) {
   glm_vec4_copy(q, dest);
 }
 
@@ -202,7 +202,7 @@ glm_quat_copy(versor q, versor dest) {
  */
 CGLM_INLINE
 void
-glm_quat_from_vecs(vec3 a, vec3 b, versor dest) {
+glm_quat_from_vecs(vec3_const a, vec3_const b, versor dest) {
   CGLM_ALIGN(8) vec3 axis;
   float cos_theta;
   float cos_half_theta;
@@ -231,7 +231,7 @@ glm_quat_from_vecs(vec3 a, vec3 b, versor dest) {
  */
 CGLM_INLINE
 float
-glm_quat_norm(versor q) {
+glm_quat_norm(versor_const q) {
   return glm_vec4_norm(q);
 }
 
@@ -243,7 +243,7 @@ glm_quat_norm(versor q) {
  */
 CGLM_INLINE
 void
-glm_quat_normalize_to(versor q, versor dest) {
+glm_quat_normalize_to(versor_const q, versor dest) {
 #if defined(__wasm__) && defined(__wasm_simd128__)
   glmm_128 xdot, x0;
   float  dot;
@@ -306,7 +306,7 @@ glm_quat_normalize(versor q) {
  */
 CGLM_INLINE
 float
-glm_quat_dot(versor p, versor q) {
+glm_quat_dot(versor_const p, versor_const q) {
   return glm_vec4_dot(p, q);
 }
 
@@ -318,7 +318,7 @@ glm_quat_dot(versor p, versor q) {
  */
 CGLM_INLINE
 void
-glm_quat_conjugate(versor q, versor dest) {
+glm_quat_conjugate(versor_const q, versor dest) {
   glm_vec4_negate_to(q, dest);
   dest[3] = -dest[3];
 }
@@ -331,7 +331,7 @@ glm_quat_conjugate(versor q, versor dest) {
  */
 CGLM_INLINE
 void
-glm_quat_inv(versor q, versor dest) {
+glm_quat_inv(versor_const q, versor dest) {
   CGLM_ALIGN(16) versor conj;
   glm_quat_conjugate(q, conj);
   glm_vec4_scale(conj, 1.0f / glm_vec4_norm2(q), dest);
@@ -346,7 +346,7 @@ glm_quat_inv(versor q, versor dest) {
  */
 CGLM_INLINE
 void
-glm_quat_add(versor p, versor q, versor dest) {
+glm_quat_add(versor_const p, versor_const q, versor dest) {
   glm_vec4_add(p, q, dest);
 }
 
@@ -359,7 +359,7 @@ glm_quat_add(versor p, versor q, versor dest) {
  */
 CGLM_INLINE
 void
-glm_quat_sub(versor p, versor q, versor dest) {
+glm_quat_sub(versor_const p, versor_const q, versor dest) {
   glm_vec4_sub(p, q, dest);
 }
 
@@ -370,7 +370,7 @@ glm_quat_sub(versor p, versor q, versor dest) {
  */
 CGLM_INLINE
 float
-glm_quat_real(versor q) {
+glm_quat_real(versor_const q) {
   return q[3];
 }
 
@@ -382,7 +382,7 @@ glm_quat_real(versor q) {
  */
 CGLM_INLINE
 void
-glm_quat_imag(versor q, vec3 dest) {
+glm_quat_imag(versor_const q, vec3 dest) {
   dest[0] = q[0];
   dest[1] = q[1];
   dest[2] = q[2];
@@ -395,7 +395,7 @@ glm_quat_imag(versor q, vec3 dest) {
  */
 CGLM_INLINE
 void
-glm_quat_imagn(versor q, vec3 dest) {
+glm_quat_imagn(versor_const q, vec3 dest) {
   glm_normalize_to(q, dest);
 }
 
@@ -406,7 +406,7 @@ glm_quat_imagn(versor q, vec3 dest) {
  */
 CGLM_INLINE
 float
-glm_quat_imaglen(versor q) {
+glm_quat_imaglen(versor_const q) {
   return glm_vec3_norm(q);
 }
 
@@ -417,7 +417,7 @@ glm_quat_imaglen(versor q) {
  */
 CGLM_INLINE
 float
-glm_quat_angle(versor q) {
+glm_quat_angle(versor_const q) {
   /*
    sin(theta / 2) = length(x*x + y*y + z*z)
    cos(theta / 2) = w
@@ -434,7 +434,7 @@ glm_quat_angle(versor q) {
  */
 CGLM_INLINE
 void
-glm_quat_axis(versor q, vec3 dest) {
+glm_quat_axis(versor_const q, vec3 dest) {
   glm_quat_imagn(q, dest);
 }
 
@@ -452,7 +452,7 @@ glm_quat_axis(versor q, vec3 dest) {
  */
 CGLM_INLINE
 void
-glm_quat_mul(versor p, versor q, versor dest) {
+glm_quat_mul(versor_const p, versor_const q, versor dest) {
   /*
     + (a1 b2 + b1 a2 + c1 d2 − d1 c2)i
     + (a1 c2 − b1 d2 + c1 a2 + d1 b2)j
@@ -481,7 +481,7 @@ glm_quat_mul(versor p, versor q, versor dest) {
  */
 CGLM_INLINE
 void
-glm_quat_mat4(versor q, mat4 dest) {
+glm_quat_mat4(versor_const q, mat4 dest) {
   float w, x, y, z,
         xx, yy, zz,
         xy, yz, xz,
@@ -528,7 +528,7 @@ glm_quat_mat4(versor q, mat4 dest) {
  */
 CGLM_INLINE
 void
-glm_quat_mat4t(versor q, mat4 dest) {
+glm_quat_mat4t(versor_const q, mat4 dest) {
   float w, x, y, z,
         xx, yy, zz,
         xy, yz, xz,
@@ -575,7 +575,7 @@ glm_quat_mat4t(versor q, mat4 dest) {
  */
 CGLM_INLINE
 void
-glm_quat_mat3(versor q, mat3 dest) {
+glm_quat_mat3(versor_const q, mat3 dest) {
   float w, x, y, z,
         xx, yy, zz,
         xy, yz, xz,
@@ -614,7 +614,7 @@ glm_quat_mat3(versor q, mat3 dest) {
  */
 CGLM_INLINE
 void
-glm_quat_mat3t(versor q, mat3 dest) {
+glm_quat_mat3t(versor_const q, mat3 dest) {
   float w, x, y, z,
         xx, yy, zz,
         xy, yz, xz,
@@ -656,7 +656,7 @@ glm_quat_mat3t(versor q, mat3 dest) {
  */
 CGLM_INLINE
 void
-glm_quat_lerp(versor from, versor to, float t, versor dest) {
+glm_quat_lerp(versor_const from, versor_const to, float t, versor dest) {
   glm_vec4_lerp(from, to, t, dest);
 }
 
@@ -671,7 +671,7 @@ glm_quat_lerp(versor from, versor to, float t, versor dest) {
  */
 CGLM_INLINE
 void
-glm_quat_lerpc(versor from, versor to, float t, versor dest) {
+glm_quat_lerpc(versor_const from, versor_const to, float t, versor dest) {
   glm_vec4_lerpc(from, to, t, dest);
 }
 
@@ -687,7 +687,7 @@ glm_quat_lerpc(versor from, versor to, float t, versor dest) {
  */
 CGLM_INLINE
 void
-glm_quat_nlerp(versor from, versor to, float t, versor dest) {
+glm_quat_nlerp(versor_const from, versor_const to, float t, versor dest) {
   versor target;
   float  dot;
   
@@ -709,7 +709,7 @@ glm_quat_nlerp(versor from, versor to, float t, versor dest) {
  */
 CGLM_INLINE
 void
-glm_quat_slerp(versor from, versor to, float t, versor dest) {
+glm_quat_slerp(versor_const from, versor_const to, float t, versor dest) {
   CGLM_ALIGN(16) vec4 q1, q2;
   float cosTheta, sinTheta, angle;
 
@@ -754,7 +754,7 @@ glm_quat_slerp(versor from, versor to, float t, versor dest) {
  */
 CGLM_INLINE
 void
-glm_quat_slerp_longest(versor from, versor to, float t, versor dest) {
+glm_quat_slerp_longest(versor_const from, versor_const to, float t, versor dest) {
   CGLM_ALIGN(16) vec4 q1, q2;
   float cosTheta, sinTheta, angle;
 
@@ -798,7 +798,7 @@ glm_quat_slerp_longest(versor from, versor to, float t, versor dest) {
  */
 CGLM_INLINE
 void
-glm_quat_look(vec3 eye, versor ori, mat4 dest) {
+glm_quat_look(vec3_const eye, versor_const ori, mat4 dest) {
   /* orientation */
   glm_quat_mat4t(ori, dest);
 
@@ -816,7 +816,7 @@ glm_quat_look(vec3 eye, versor ori, mat4 dest) {
  */
 CGLM_INLINE
 void
-glm_quat_for(vec3 dir, vec3 up, versor dest) {
+glm_quat_for(vec3_const dir, vec3_const up, versor dest) {
   CGLM_ALIGN_MAT_IF mat3 m;
 
   glm_vec3_normalize_to(dir, m[2]); 
@@ -841,7 +841,7 @@ glm_quat_for(vec3 dir, vec3 up, versor dest) {
  */
 CGLM_INLINE
 void
-glm_quat_forp(vec3 from, vec3 to, vec3 up, versor dest) {
+glm_quat_forp(vec3_const from, vec3_const to, vec3_const up, versor dest) {
   CGLM_ALIGN(8) vec3 dir;
   glm_vec3_sub(to, from, dir);
   glm_quat_for(dir, up, dest);
@@ -856,7 +856,7 @@ glm_quat_forp(vec3 from, vec3 to, vec3 up, versor dest) {
  */
 CGLM_INLINE
 void
-glm_quat_rotatev(versor q, vec3 v, vec3 dest) {
+glm_quat_rotatev(versor_const q, vec3_const v, vec3 dest) {
   CGLM_ALIGN(16) versor p;
   CGLM_ALIGN(8)  vec3   u, v1, v2;
   float s;
@@ -884,7 +884,7 @@ glm_quat_rotatev(versor q, vec3 v, vec3 dest) {
  */
 CGLM_INLINE
 void
-glm_quat_rotate(mat4 m, versor q, mat4 dest) {
+glm_quat_rotate(mat4_const m, versor_const q, mat4 dest) {
   CGLM_ALIGN_MAT_IF mat4 rot;
   glm_quat_mat4(q, rot);
   glm_mul_rot(m, rot, dest);
@@ -899,7 +899,7 @@ glm_quat_rotate(mat4 m, versor q, mat4 dest) {
  */
 CGLM_INLINE
 void
-glm_quat_rotate_at(mat4 m, versor q, vec3 pivot) {
+glm_quat_rotate_at(mat4 m, versor_const q, vec3 pivot) {
   CGLM_ALIGN(8) vec3 pivotInv;
 
   glm_vec3_negate_to(pivot, pivotInv);
@@ -923,7 +923,7 @@ glm_quat_rotate_at(mat4 m, versor q, vec3 pivot) {
  */
 CGLM_INLINE
 void
-glm_quat_rotate_atm(mat4 m, versor q, vec3 pivot) {
+glm_quat_rotate_atm(mat4 m, versor_const q, vec3_const pivot) {
   CGLM_ALIGN(8) vec3 pivotInv;
 
   glm_vec3_negate_to(pivot, pivotInv);

@@ -27,7 +27,7 @@
  */
 CGLM_INLINE
 float
-glm_sphere_radii(vec4 s) {
+glm_sphere_radii(vec4_const s) {
   return s[3];
 }
 
@@ -40,7 +40,7 @@ glm_sphere_radii(vec4 s) {
  */
 CGLM_INLINE
 void
-glm_sphere_transform(vec4 s, mat4 m, vec4 dest) {
+glm_sphere_transform(vec4_const s, mat4_const m, vec4 dest) {
   glm_mat4_mulv3(m, s, 1.0f, dest);
   dest[3] = s[3];
 }
@@ -57,7 +57,7 @@ glm_sphere_transform(vec4 s, mat4 m, vec4 dest) {
  */
 CGLM_INLINE
 void
-glm_sphere_merge(vec4 s1, vec4 s2, vec4 dest) {
+glm_sphere_merge(vec4_const s1, vec4_const s2, vec4 dest) {
   float dist, radii;
 
   dist  = glm_vec3_distance(s1, s2);
@@ -78,7 +78,7 @@ glm_sphere_merge(vec4 s1, vec4 s2, vec4 dest) {
  */
 CGLM_INLINE
 bool
-glm_sphere_sphere(vec4 s1, vec4 s2) {
+glm_sphere_sphere(vec4_const s1, vec4_const s2) {
   return glm_vec3_distance2(s1, s2) <= glm_pow2(s1[3] + s2[3]);
 }
 
@@ -90,7 +90,7 @@ glm_sphere_sphere(vec4 s1, vec4 s2) {
  */
 CGLM_INLINE
 bool
-glm_sphere_point(vec4 s, vec3 point) {
+glm_sphere_point(vec4_const s, vec3_const point) {
   float rr;
   rr = s[3] * s[3];
   return glm_vec3_distance2(point, s) <= rr;

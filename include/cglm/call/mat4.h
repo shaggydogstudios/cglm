@@ -19,11 +19,11 @@ extern "C" {
 
 CGLM_EXPORT
 void
-glmc_mat4_ucopy(mat4 mat, mat4 dest);
+glmc_mat4_ucopy(mat4_const mat, mat4 dest);
 
 CGLM_EXPORT
 void
-glmc_mat4_copy(mat4 mat, mat4 dest);
+glmc_mat4_copy(mat4_const mat, mat4 dest);
 
 CGLM_EXPORT
 void
@@ -39,19 +39,19 @@ glmc_mat4_zero(mat4 mat);
 
 CGLM_EXPORT
 void
-glmc_mat4_pick3(mat4 mat, mat3 dest);
+glmc_mat4_pick3(mat4_const mat, mat3 dest);
 
 CGLM_EXPORT
 void
-glmc_mat4_pick3t(mat4 mat, mat3 dest);
+glmc_mat4_pick3t(mat4_const mat, mat3 dest);
 
 CGLM_EXPORT
 void
-glmc_mat4_ins3(mat3 mat, mat4 dest);
+glmc_mat4_ins3(mat3_const mat, mat4 dest);
 
 CGLM_EXPORT
 void
-glmc_mat4_mul(mat4 m1, mat4 m2, mat4 dest);
+glmc_mat4_mul(mat4_const m1, mat4_const m2, mat4 dest);
 
 CGLM_EXPORT
 void
@@ -59,27 +59,27 @@ glmc_mat4_mulN(mat4 * __restrict matrices[], uint32_t len, mat4 dest);
 
 CGLM_EXPORT
 void
-glmc_mat4_mulv(mat4 m, vec4 v, vec4 dest);
+glmc_mat4_mulv(mat4_const m, vec4_const v, vec4 dest);
 
 CGLM_EXPORT
 void
-glmc_mat4_mulv3(mat4 m, vec3 v, float last, vec3 dest);
+glmc_mat4_mulv3(mat4_const m, vec3_const v, float last, vec3 dest);
 
 CGLM_EXPORT
 float
-glmc_mat4_trace(mat4 m);
+glmc_mat4_trace(mat4_const m);
 
 CGLM_EXPORT
 float
-glmc_mat4_trace3(mat4 m);
+glmc_mat4_trace3(mat4_const m);
 
 CGLM_EXPORT
 void
-glmc_mat4_quat(mat4 m, versor dest);
+glmc_mat4_quat(mat4_const m, versor dest);
 
 CGLM_EXPORT
 void
-glmc_mat4_transpose_to(mat4 m, mat4 dest);
+glmc_mat4_transpose_to(mat4_const m, mat4 dest);
 
 CGLM_EXPORT
 void
@@ -95,11 +95,11 @@ glmc_mat4_scale(mat4 m, float s);
 
 CGLM_EXPORT
 float
-glmc_mat4_det(mat4 mat);
+glmc_mat4_det(mat4_const mat);
 
 CGLM_EXPORT
 void
-glmc_mat4_inv(mat4 mat, mat4 dest);
+glmc_mat4_inv(mat4_const mat, mat4 dest);
 
 CGLM_EXPORT
 void
@@ -107,7 +107,7 @@ glmc_mat4_inv_precise(mat4 mat, mat4 dest);
 
 CGLM_EXPORT
 void
-glmc_mat4_inv_fast(mat4 mat, mat4 dest);
+glmc_mat4_inv_fast(mat4_const mat, mat4 dest);
 
 CGLM_EXPORT
 void
@@ -119,7 +119,7 @@ glmc_mat4_swap_row(mat4 mat, int row1, int row2);
 
 CGLM_EXPORT
 float
-glmc_mat4_rmc(vec4 r, mat4 m, vec4 c);
+glmc_mat4_rmc(vec4_const r, mat4_const m, vec4_const c);
 
 CGLM_EXPORT
 void

@@ -53,7 +53,7 @@
  */
 CGLM_INLINE
 void
-glm_mul(mat4 m1, mat4 m2, mat4 dest) {
+glm_mul(mat4_const m1, mat4_const m2, mat4 dest) {
 #if defined(__wasm__) && defined(__wasm_simd128__)
   glm_mul_wasm(m1, m2, dest);
 #elif defined(__AVX__)
@@ -113,7 +113,7 @@ glm_mul(mat4 m1, mat4 m2, mat4 dest) {
  */
 CGLM_INLINE
 void
-glm_mul_rot(mat4 m1, mat4 m2, mat4 dest) {
+glm_mul_rot(mat4_const m1, mat4_const m2, mat4 dest) {
 #if defined(__wasm__) && defined(__wasm_simd128__)
   glm_mul_rot_wasm(m1, m2, dest);
 #elif defined( __SSE__ ) || defined( __SSE2__ )

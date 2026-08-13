@@ -69,7 +69,7 @@
  */
 CGLM_INLINE
 void
-glm_frustum_planes(mat4 m, vec4 dest[6]) {
+glm_frustum_planes(mat4_const m, vec4 dest[6]) {
   mat4 t;
 
   glm_mat4_transpose_to(m, t);
@@ -114,7 +114,7 @@ glm_frustum_planes(mat4 m, vec4 dest[6]) {
  */
 CGLM_INLINE
 void
-glm_frustum_corners(mat4 invMat, vec4 dest[8]) {
+glm_frustum_corners(mat4_const invMat, vec4 dest[8]) {
   vec4 c[8];
 
   /* indexOf(nearCoord) = indexOf(farCoord) + 4 */
@@ -182,7 +182,7 @@ glm_frustum_center(vec4 corners[8], vec4 dest) {
  */
 CGLM_INLINE
 void
-glm_frustum_box(vec4 corners[8], mat4 m, vec3 box[2]) {
+glm_frustum_box(vec4 corners[8], mat4_const m, vec3 box[2]) {
   vec4 v;
   vec3 min, max;
   int  i;

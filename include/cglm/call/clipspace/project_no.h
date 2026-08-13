@@ -15,15 +15,15 @@ extern "C" {
 
 CGLM_EXPORT
 void
-glmc_unprojecti_no(vec3 pos, mat4 invMat, vec4 vp, vec3 dest);
+glmc_unprojecti_no(vec3_const pos, mat4_const invMat, vec4_const vp, vec3 dest);
 
 CGLM_EXPORT
 void
-glmc_project_no(vec3 pos, mat4 m, vec4 vp, vec3 dest);
+glmc_project_no(vec3_const pos, mat4_const m, vec4_const vp, vec3 dest);
 
 CGLM_EXPORT
 float
-glmc_project_z_no(vec3 pos, mat4 m);
+glmc_project_z_no(vec3_const pos, mat4_const m);
 
 #ifdef __cplusplus
 }

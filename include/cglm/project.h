@@ -52,7 +52,7 @@
  */
 CGLM_INLINE
 void
-glm_unprojecti(vec3 pos, mat4 invMat, vec4 vp, vec3 dest) {
+glm_unprojecti(vec3_const pos, mat4_const invMat, vec4_const vp, vec3 dest) {
 #if CGLM_CONFIG_CLIP_CONTROL & CGLM_CLIP_CONTROL_ZO_BIT
   glm_unprojecti_zo(pos, invMat, vp, dest);
 #elif CGLM_CONFIG_CLIP_CONTROL & CGLM_CLIP_CONTROL_NO_BIT
@@ -86,7 +86,7 @@ glm_unprojecti(vec3 pos, mat4 invMat, vec4 vp, vec3 dest) {
  */
 CGLM_INLINE
 void
-glm_unproject(vec3 pos, mat4 m, vec4 vp, vec3 dest) {
+glm_unproject(vec3_const pos, mat4_const m, vec4_const vp, vec3 dest) {
   mat4 inv;
   glm_mat4_inv(m, inv);
   glm_unprojecti(pos, inv, vp, dest);
@@ -106,7 +106,7 @@ glm_unproject(vec3 pos, mat4 m, vec4 vp, vec3 dest) {
  */
 CGLM_INLINE
 void
-glm_project(vec3 pos, mat4 m, vec4 vp, vec3 dest) {
+glm_project(vec3_const pos, mat4_const m, vec4_const vp, vec3 dest) {
 #if CGLM_CONFIG_CLIP_CONTROL & CGLM_CLIP_CONTROL_ZO_BIT
   glm_project_zo(pos, m, vp, dest);
 #elif CGLM_CONFIG_CLIP_CONTROL & CGLM_CLIP_CONTROL_NO_BIT
@@ -128,7 +128,7 @@ glm_project(vec3 pos, mat4 m, vec4 vp, vec3 dest) {
  */
 CGLM_INLINE
 float
-glm_project_z(vec3 v, mat4 m) {
+glm_project_z(vec3_const v, mat4_const m) {
 #if CGLM_CONFIG_CLIP_CONTROL & CGLM_CLIP_CONTROL_ZO_BIT
   return glm_project_z_zo(v, m);
 #elif CGLM_CONFIG_CLIP_CONTROL & CGLM_CLIP_CONTROL_NO_BIT
@@ -146,7 +146,7 @@ glm_project_z(vec3 v, mat4 m) {
  */
 CGLM_INLINE
 void
-glm_pickmatrix(vec2 center, vec2 size, vec4 vp, mat4 dest) {
+glm_pickmatrix(vec2_const center, vec2_const size, vec4_const vp, mat4 dest) {
   mat4 res;
   vec3 v;
 

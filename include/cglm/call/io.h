@@ -17,27 +17,27 @@ extern "C" {
 
 CGLM_EXPORT
 void
-glmc_mat4_print(mat4   matrix,
+glmc_mat4_print(mat4_const   matrix,
                 FILE * __restrict ostream);
 
 CGLM_EXPORT
 void
-glmc_mat3_print(mat3 matrix,
+glmc_mat3_print(mat3_const matrix,
                 FILE * __restrict ostream);
 
 CGLM_EXPORT
 void
-glmc_vec4_print(vec4 vec,
+glmc_vec4_print(vec4_const vec,
                 FILE * __restrict ostream);
 
 CGLM_EXPORT
 void
-glmc_vec3_print(vec3 vec,
+glmc_vec3_print(vec3_const vec,
                 FILE * __restrict ostream);
 
 CGLM_EXPORT
 void
-glmc_versor_print(versor vec,
+glmc_versor_print(versor_const vec,
                   FILE * __restrict ostream);
 
 #ifdef __cplusplus

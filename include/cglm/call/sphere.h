@@ -15,23 +15,23 @@ extern "C" {
 
 CGLM_EXPORT
 float
-glmc_sphere_radii(vec4 s);
+glmc_sphere_radii(vec4_const s);
 
 CGLM_EXPORT
 void
-glmc_sphere_transform(vec4 s, mat4 m, vec4 dest);
+glmc_sphere_transform(vec4_const s, mat4_const m, vec4 dest);
 
 CGLM_EXPORT
 void
-glmc_sphere_merge(vec4 s1, vec4 s2, vec4 dest);
+glmc_sphere_merge(vec4_const s1, vec4_const s2, vec4 dest);
 
 CGLM_EXPORT
 bool
-glmc_sphere_sphere(vec4 s1, vec4 s2);
+glmc_sphere_sphere(vec4_const s1, vec4_const s2);
 
 CGLM_EXPORT
 bool
-glmc_sphere_point(vec4 s, vec3 point);
+glmc_sphere_point(vec4_const s, vec3_const point);
 
 #ifdef __cplusplus
 }

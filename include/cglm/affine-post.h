@@ -41,7 +41,7 @@
  */
 CGLM_INLINE
 void
-glm_translated(mat4 m, vec3 v) {
+glm_translated(mat4 m, vec3_const v) {
   glm_vec3_add(m[3], v, m[3]);
 }
 
@@ -59,7 +59,7 @@ glm_translated(mat4 m, vec3 v) {
  */
 CGLM_INLINE
 void
-glm_translated_to(mat4 m, vec3 v, mat4 dest) {
+glm_translated_to(mat4_const m, vec3_const v, mat4 dest) {
   glm_mat4_copy(m, dest);
   glm_translated(dest, v);
 }
@@ -118,7 +118,7 @@ glm_translated_z(mat4 m, float z) {
  */
 CGLM_INLINE
 void
-glm_rotated_x(mat4 m, float angle, mat4 dest) {
+glm_rotated_x(mat4_const m, float angle, mat4 dest) {
   CGLM_ALIGN_MAT_IF mat4 t = GLM_MAT4_IDENTITY_INIT;
   float c, s;
 
@@ -145,7 +145,7 @@ glm_rotated_x(mat4 m, float angle, mat4 dest) {
  */
 CGLM_INLINE
 void
-glm_rotated_y(mat4 m, float angle, mat4 dest) {
+glm_rotated_y(mat4_const m, float angle, mat4 dest) {
   CGLM_ALIGN_MAT_IF mat4 t = GLM_MAT4_IDENTITY_INIT;
   float c, s;
 
@@ -172,7 +172,7 @@ glm_rotated_y(mat4 m, float angle, mat4 dest) {
  */
 CGLM_INLINE
 void
-glm_rotated_z(mat4 m, float angle, mat4 dest) {
+glm_rotated_z(mat4_const m, float angle, mat4 dest) {
   CGLM_ALIGN_MAT_IF mat4 t = GLM_MAT4_IDENTITY_INIT;
   float c, s;
 
@@ -198,7 +198,7 @@ glm_rotated_z(mat4 m, float angle, mat4 dest) {
  */
 CGLM_INLINE
 void
-glm_rotated(mat4 m, float angle, vec3 axis) {
+glm_rotated(mat4 m, float angle, vec3_const axis) {
   CGLM_ALIGN_MAT_IF mat4 rot;
   glm_rotate_make(rot, angle, axis);
   glm_mul_rot(rot, m, m);
@@ -217,7 +217,7 @@ glm_rotated(mat4 m, float angle, vec3 axis) {
  */
 CGLM_INLINE
 void
-glm_rotated_at(mat4 m, vec3 pivot, float angle, vec3 axis) {
+glm_rotated_at(mat4 m, vec3_const pivot, float angle, vec3_const axis) {
   CGLM_ALIGN(8) vec3 pivotInv;
 
   glm_vec3_negate_to(pivot, pivotInv);
@@ -238,7 +238,7 @@ glm_rotated_at(mat4 m, vec3 pivot, float angle, vec3 axis) {
  */
 CGLM_INLINE
 void
-glm_spinned(mat4 m, float angle, vec3 axis) {
+glm_spinned(mat4 m, float angle, vec3_const axis) {
   CGLM_ALIGN_MAT_IF mat4 rot;
   glm_rotate_atm(rot, m[3], angle, axis);
   glm_mat4_mul(rot, m, m);

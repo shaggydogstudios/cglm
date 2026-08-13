@@ -117,7 +117,7 @@ glm_arch_print_name(FILE* __restrict ostream) {
 
 CGLM_INLINE
 void
-glm_mat4_print(mat4              matrix,
+glm_mat4_print(mat4_const        matrix,
                FILE * __restrict ostream) {
   char buff[16];
   int  i, j, cw[4], cwi;
@@ -160,7 +160,7 @@ glm_mat4_print(mat4              matrix,
 
 CGLM_INLINE
 void
-glm_mat3_print(mat3              matrix,
+glm_mat3_print(mat3_const        matrix,
                FILE * __restrict ostream) {
   char buff[16];
   int  i, j, cw[4], cwi;
@@ -202,7 +202,7 @@ glm_mat3_print(mat3              matrix,
 
 CGLM_INLINE
 void
-glm_mat2_print(mat2              matrix,
+glm_mat2_print(mat2_const        matrix,
                FILE * __restrict ostream) {
   char buff[16];
   int  i, j, cw[4], cwi;
@@ -244,7 +244,7 @@ glm_mat2_print(mat2              matrix,
 
 CGLM_INLINE
 void
-glm_vec4_print(vec4              vec,
+glm_vec4_print(vec4_const        vec,
                FILE * __restrict ostream) {
   int i;
 
@@ -266,7 +266,7 @@ glm_vec4_print(vec4              vec,
 
 CGLM_INLINE
 void
-glm_ivec4_print(ivec4             vec,
+glm_ivec4_print(ivec4_const       vec,
                 FILE * __restrict ostream) {
   int i;
 
@@ -284,7 +284,7 @@ glm_ivec4_print(ivec4             vec,
 
 CGLM_INLINE
 void
-glm_vec3_print(vec3              vec,
+glm_vec3_print(vec3_const        vec,
                FILE * __restrict ostream) {
   int i;
 
@@ -306,7 +306,7 @@ glm_vec3_print(vec3              vec,
 
 CGLM_INLINE
 void
-glm_ivec3_print(ivec3             vec,
+glm_ivec3_print(ivec3_const       vec,
                 FILE * __restrict ostream) {
   int i;
 
@@ -324,7 +324,7 @@ glm_ivec3_print(ivec3             vec,
 
 CGLM_INLINE
 void
-glm_vec2_print(vec2              vec,
+glm_vec2_print(vec2_const        vec,
                FILE * __restrict ostream) {
   int i;
 
@@ -346,7 +346,7 @@ glm_vec2_print(vec2              vec,
 
 CGLM_INLINE
 void
-glm_ivec2_print(ivec2             vec,
+glm_ivec2_print(ivec2_const       vec,
                 FILE * __restrict ostream) {
   int i;
 
@@ -364,7 +364,7 @@ glm_ivec2_print(ivec2             vec,
 
 CGLM_INLINE
 void
-glm_versor_print(versor            vec,
+glm_versor_print(versor_const      vec,
                  FILE * __restrict ostream) {
   int i;
 
@@ -387,7 +387,7 @@ glm_versor_print(versor            vec,
 
 CGLM_INLINE
 void
-glm_aabb_print(vec3                    bbox[2],
+glm_aabb_print(vec3_const              bbox[2],
                const char * __restrict tag,
                FILE       * __restrict ostream) {
   int i, j;

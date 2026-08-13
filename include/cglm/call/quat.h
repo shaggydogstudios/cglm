@@ -31,23 +31,23 @@ glmc_quat(versor q, float angle, float x, float y, float z);
 
 CGLM_EXPORT
 void
-glmc_quatv(versor q, float angle, vec3 axis);
+glmc_quatv(versor q, float angle, vec3_const axis);
 
 CGLM_EXPORT
 void
-glmc_quat_copy(versor q, versor dest);
+glmc_quat_copy(versor_const q, versor dest);
 
 CGLM_EXPORT
 void
-glmc_quat_from_vecs(vec3 a, vec3 b, versor dest);
+glmc_quat_from_vecs(vec3_const a, vec3_const b, versor dest);
 
 CGLM_EXPORT
 float
-glmc_quat_norm(versor q);
+glmc_quat_norm(versor_const q);
 
 CGLM_EXPORT
 void
-glmc_quat_normalize_to(versor q, versor dest);
+glmc_quat_normalize_to(versor_const q, versor dest);
 
 CGLM_EXPORT
 void
@@ -55,115 +55,115 @@ glmc_quat_normalize(versor q);
 
 CGLM_EXPORT
 float
-glmc_quat_dot(versor p, versor q);
+glmc_quat_dot(versor_const p, versor_const q);
 
 CGLM_EXPORT
 void
-glmc_quat_conjugate(versor q, versor dest);
+glmc_quat_conjugate(versor_const q, versor dest);
 
 CGLM_EXPORT
 void
-glmc_quat_inv(versor q, versor dest);
+glmc_quat_inv(versor_const q, versor dest);
 
 CGLM_EXPORT
 void
-glmc_quat_add(versor p, versor q, versor dest);
+glmc_quat_add(versor_const p, versor_const q, versor dest);
 
 CGLM_EXPORT
 void
-glmc_quat_sub(versor p, versor q, versor dest);
+glmc_quat_sub(versor_const p, versor_const q, versor dest);
 
 CGLM_EXPORT
 float
-glmc_quat_real(versor q);
+glmc_quat_real(versor_const q);
 
 CGLM_EXPORT
 void
-glmc_quat_imag(versor q, vec3 dest);
+glmc_quat_imag(versor_const q, vec3 dest);
 
 CGLM_EXPORT
 void
-glmc_quat_imagn(versor q, vec3 dest);
+glmc_quat_imagn(versor_const q, vec3 dest);
 
 CGLM_EXPORT
 float
-glmc_quat_imaglen(versor q);
+glmc_quat_imaglen(versor_const q);
 
 CGLM_EXPORT
 float
-glmc_quat_angle(versor q);
+glmc_quat_angle(versor_const q);
 
 CGLM_EXPORT
 void
-glmc_quat_axis(versor q, vec3 dest);
+glmc_quat_axis(versor_const q, vec3 dest);
 
 CGLM_EXPORT
 void
-glmc_quat_mul(versor p, versor q, versor dest);
+glmc_quat_mul(versor_const p, versor_const q, versor dest);
 
 CGLM_EXPORT
 void
-glmc_quat_mat4(versor q, mat4 dest);
+glmc_quat_mat4(versor_const q, mat4 dest);
 
 CGLM_EXPORT
 void
-glmc_quat_mat4t(versor q, mat4 dest);
+glmc_quat_mat4t(versor_const q, mat4 dest);
 
 CGLM_EXPORT
 void
-glmc_quat_mat3(versor q, mat3 dest);
+glmc_quat_mat3(versor_const q, mat3 dest);
 
 CGLM_EXPORT
 void
-glmc_quat_mat3t(versor q, mat3 dest);
+glmc_quat_mat3t(versor_const q, mat3 dest);
 
 CGLM_EXPORT
 void
-glmc_quat_lerp(versor from, versor to, float t, versor dest);
+glmc_quat_lerp(versor_const from, versor_const to, float t, versor dest);
 
 CGLM_EXPORT
 void
-glmc_quat_lerpc(versor from, versor to, float t, versor dest);
+glmc_quat_lerpc(versor_const from, versor_const to, float t, versor dest);
 
 CGLM_EXPORT
 void
-glmc_quat_nlerp(versor q, versor r, float t, versor dest);
+glmc_quat_nlerp(versor_const q, versor_const r, float t, versor dest);
 
 CGLM_EXPORT
 void
-glmc_quat_slerp(versor q, versor r, float t, versor dest);
+glmc_quat_slerp(versor_const q, versor_const r, float t, versor dest);
 
 CGLM_EXPORT
 void
-glmc_quat_slerp_longest(versor q, versor r, float t, versor dest);
+glmc_quat_slerp_longest(versor_const q, versor_const r, float t, versor dest);
 
 CGLM_EXPORT
 void
-glmc_quat_look(vec3 eye, versor ori, mat4 dest);
+glmc_quat_look(vec3_const eye, versor_const ori, mat4 dest);
 
 CGLM_EXPORT
 void
-glmc_quat_for(vec3 dir, vec3 up, versor dest);
+glmc_quat_for(vec3_const dir, vec3_const up, versor dest);
 
 CGLM_EXPORT
 void
-glmc_quat_forp(vec3 from, vec3 to, vec3 up, versor dest);
+glmc_quat_forp(vec3_const from, vec3_const to, vec3_const up, versor dest);
 
 CGLM_EXPORT
 void
-glmc_quat_rotatev(versor from, vec3 to, vec3 dest);
+glmc_quat_rotatev(versor_const from, vec3_const to, vec3 dest);
 
 CGLM_EXPORT
 void
-glmc_quat_rotate(mat4 m, versor q, mat4 dest);
+glmc_quat_rotate(mat4_const m, versor_const q, mat4 dest);
 
 CGLM_EXPORT
 void
-glmc_quat_rotate_at(mat4 model, versor q, vec3 pivot);
+glmc_quat_rotate_at(mat4 model, versor_const q, vec3 pivot);
 
 CGLM_EXPORT
 void
-glmc_quat_rotate_atm(mat4 m, versor q, vec3 pivot);
+glmc_quat_rotate_atm(mat4 m, versor_const q, vec3_const pivot);
 
 CGLM_EXPORT
 void

@@ -31,7 +31,7 @@
  */
 CGLM_INLINE
 float
-glm_smc(float s, mat4 m, vec4 c) {
+glm_smc(float s, mat4_const m, vec4_const c) {
   vec4 vs;
   glm_vec4_cubic(s, vs);
   return glm_mat4_rmc(vs, m, c);
